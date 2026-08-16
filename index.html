@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ress_Nullius - Catálogo Numismático</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Ress_Nullius</h1>
+        <p>Catálogo Numismático Personal</p>
+    </header>
+
+    <main class="container">
+        <nav class="categories">
+            <button class="nav-btn" onclick="filtrar('Plata')">Monedas de Plata</button>
+            <button class="nav-btn" onclick="filtrar('Exonumia')">Exonumia</button>
+            
+            <div class="dropdown">
+                <button class="nav-btn dropdown-btn">España ▾</button>
+                <div class="dropdown-content">
+                    <button onclick="filtrar('España', '2€')">2€ España</button>
+                    <button onclick="filtrar('España', 'Juan Carlos I')">Juan Carlos I</button>
+                    <button onclick="filtrar('España', '2ª República')">2ª República</button>
+                    <button onclick="filtrar('España', 'Guerra Civil')">Guerra Civil</button>
+                    <button onclick="filtrar('España', 'Francisco Franco')">Francisco Franco</button>
+                    <button onclick="filtrar('España', 'Alfonso XII y XIII')">Alfonso XII y XIII</button>
+                </div>
+            </div>
+
+            <div class="dropdown">
+                <button class="nav-btn dropdown-btn">Europa ▾</button>
+                <div class="dropdown-content">
+                    <button onclick="filtrar('Francia')">Francia</button>
+                    <button onclick="filtrar('Portugal')">Portugal</button>
+                    <button onclick="filtrar('Italia')">Italia</button>
+                    <button onclick="filtrar('Alemania')">Alemania</button>
+                    <button onclick="filtrar('Países Bajos')">Países Bajos</button>
+                    <button onclick="filtrar('Bélgica')">Bélgica</button>
+                    <button onclick="filtrar('Austria')">Austria</button>
+                    <button onclick="filtrar('República Checa')">República Checa</button>
+                    <button onclick="filtrar('Andorra')">Andorra</button>
+                    <button onclick="filtrar('Grecia')">Grecia</button>
+                    <button onclick="filtrar('Irlanda')">Irlanda</button>
+                    <button onclick="filtrar('Luxemburgo')">Luxemburgo</button>
+                    <button onclick="filtrar('Finlandia')">Finlandia</button>
+                    <button onclick="filtrar('Eslovaquia')">Eslovaquia</button>
+                    <button onclick="filtrar('Malta')">Malta</button>
+                    <button onclick="filtrar('Chipre')">Chipre</button>
+                    <button onclick="filtrar('Estonia')">Estonia</button>
+                    <button onclick="filtrar('Ucrania')">Ucrania</button>
+                    <button onclick="filtrar('Letonia')">Letonia</button>
+                    <button onclick="filtrar('Lituania')">Lituania</button>
+                    <button onclick="filtrar('Reino Unido')">Reino Unido</button>
+                    <button onclick="filtrar('Suiza')">Suiza</button>
+                </div>
+            </div>
+
+            <div class="dropdown">
+                <button class="nav-btn dropdown-btn">América ▾</button>
+                <div class="dropdown-content">
+                    <button onclick="filtrar('Canadá')">Canadá</button>
+                    <button onclick="filtrar('Estados Unidos')">Estados Unidos</button>
+                    <button onclick="filtrar('Brasil')">Brasil</button>
+                    <button onclick="filtrar('República de Cuba')">República de Cuba</button>
+                    <button onclick="filtrar('República de Chile')">República de Chile</button>
+                    <button onclick="filtrar('República de Argentina')">República de Argentina</button>
+                    <button onclick="filtrar('República de Perú')">República de Perú</button>
+                    <button onclick="filtrar('México')">México</button>
+                </div>
+            </div>
+
+            <div class="dropdown">
+                <button class="nav-btn dropdown-btn">Asia / África ▾</button>
+                <div class="dropdown-content">
+                    <button onclick="filtrar('Filipinas')">Filipinas</button>
+                    <button onclick="filtrar('Japón')">Japón</button>
+                    <button onclick="filtrar('República Popular de China')">China</button>
+                    <button onclick="filtrar('Tailandia')">Tailandia</button>
+                    <button onclick="filtrar('Catar')">Catar</button>
+                    <button onclick="filtrar('Egipto')">Egipto</button>
+                </div>
+            </div>
+            
+            <button class="nav-btn reset-btn" onclick="mostrarTodas()">Mostrar Todas</button>
+        </nav>
+
+        <h2 id="titulo-seccion">Todas las monedas</h2>
+        <div id="grid-monedas" class="grid-container"></div>
+    </main>
+
+    <div id="modal" class="modal" onclick="cerrarModal()">
+        <span class="close">&times;</span>
+        <img class="modal-content" id="img-modal">
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
