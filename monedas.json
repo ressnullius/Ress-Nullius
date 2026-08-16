@@ -1,56 +1,1134 @@
 [
   {
     "pais": "España",
-    "subcategoria": "2€",
-    "valor": "2 Euros",
-    "ano": 2010,
-    "composicion": "Bimetálica",
-    "conmemorativa": true,
-    "motivo": "Centro Histórico de Córdoba",
-    "es_plata": false,
-    "es_exonumia": false,
-    "imagen": "https://via.placeholder.com/300x300?text=2e+Espana",
-    "link_instagram": "https://www.instagram.com/"
+    "subgrupo": "Guerra Civil",
+    "monedas": [
+      {
+        "valor": "50 céntimos",
+        "ano": 1937,
+        "ceca": "Gijón",
+        "conservacion": "VF",
+        "motivo": "Consejo de Asturias y León",
+        "unidades": 1,
+        "link_instagram": ""
+      },
+      {
+        "valor": "1 peseta",
+        "ano": 1937,
+        "ceca": "Gijón",
+        "conservacion": "VF",
+        "motivo": "Consejo de Asturias y León",
+        "unidades": 1,
+        "link_instagram": ""
+      },
+      {
+        "valor": "2 pesetas",
+        "ano": 1937,
+        "ceca": "Gijón",
+        "conservacion": "VF",
+        "motivo": "Consejo de Asturias y León",
+        "unidades": 1,
+        "link_instagram": ""
+      }
+    ]
   },
   {
     "pais": "España",
-    "subcategoria": "Juan Carlos I",
-    "valor": "2000 Pesetas",
-    "ano": 1994,
-    "composicion": "Plata 925",
-    "conmemorativa": true,
-    "motivo": "Asamblea del Fondo Monetario Internacional",
-    "es_plata": true,
-    "es_exonumia": false,
-    "imagen": "https://via.placeholder.com/300x300?text=2000+Pesetas+Plata",
-    "link_instagram": ""
+    "subgrupo": "Alfonso XII",
+    "monedas": [
+      {
+        "valor": "2 pesetas",
+        "ano": "1882*81",
+        "ceca": "Madrid",
+        "conservacion": "F",
+        "motivo": "Alfonso XII",
+        "unidades": 1,
+        "link_instagram": ""
+      },
+      {
+        "valor": "1 peseta",
+        "ano": "1882*82",
+        "ceca": "Madrid",
+        "conservacion": "VF",
+        "motivo": "Alfonso XII",
+        "unidades": 1,
+        "link_instagram": ""
+      }
+    ]
   },
   {
-    "pais": "Francia",
-    "subcategoria": "",
-    "valor": "5 Francos",
-    "ano": 1960,
-    "composicion": "Plata 835",
-    "conmemorativa": false,
-    "motivo": "",
-    "es_plata": true,
-    "es_exonumia": false,
-    "imagen": "https://via.placeholder.com/300x300?text=5+Francos",
-    "link_instagram": ""
-  },
-    {
     "pais": "España",
-    "subcategoria": "2€",
-    "valor": "2 Euros",
-    "ano": 2010,
-    "composicion": "Bimetálica",
-    "conmemorativa": true,
-    "motivo": "Centro Histórico de Córdoba",
-    "es_plata": false,
-    "es_exonumia": false,
-    "imagen_anverso": "",
-    "imagen_reverso": "",
-    "link_instagram": "https://www.instagram.com/p/C5lx0F9KRVT/?igsh=M2d6enN0NGVyOWdi&igsi=M2d6enN0NGVyOWdi"
+    "subgrupo": "Segunda República",
+    "monedas": [
+      {
+        "valor": "1 peseta",
+        "ano": "1933*34",
+        "ceca": "Madrid",
+        "conservacion": "XF",
+        "motivo": "II República",
+        "unidades": 1,
+        "link_instagram": ""
+      },
+      {
+        "valor": "25 céntimos",
+        "ano": 1934,
+        "ceca": "Madrid",
+        "conservacion": "VF",
+        "motivo": "II República",
+        "unidades": 1,
+        "link_instagram": ""
+      },
+      {
+        "valor": "5 céntimos",
+        "ano": 1937,
+        "ceca": "Madrid",
+        "conservacion": "VF",
+        "motivo": "II República",
+        "unidades": 1,
+        "link_instagram": ""
+      },
+      {
+        "valor": "25 céntimos",
+        "ano": 1937,
+        "ceca": "Viena",
+        "conservacion": "F",
+        "motivo": "2º Año Triunfal",
+        "unidades": 1,
+        "link_instagram": ""
+      },
+      {
+        "valor": "50 céntimos",
+        "ano": "1937*",
+        "ceca": "Aspe y Castellón",
+        "conservacion": "F",
+        "motivo": "II República",
+        "unidades": 1,
+        "link_instagram": ""
+      },
+      {
+        "valor": "1 peseta",
+        "ano": 1937,
+        "ceca": "Madrid",
+        "conservacion": "VF",
+        "motivo": "II República",
+        "unidades": 1,
+        "link_instagram": ""
+      },
+      {
+        "valor": "1 peseta",
+        "ano": 1937,
+        "ceca": "Madrid",
+        "conservacion": "VG",
+        "motivo": "II República",
+        "unidades": 1,
+        "link_instagram": ""
+      },
+      {
+        "valor": "10 céntimos",
+        "ano": 1938,
+        "ceca": "Aspe y Castellón",
+        "conservacion": "UNC",
+        "motivo": "II República (Réplica)",
+        "unidades": 1,
+        "link_instagram": ""
+      },
+      {
+        "valor": "25 céntimos",
+        "ano": 1938,
+        "ceca": "Aspe y Castellón",
+        "conservacion": "G",
+        "motivo": "II República",
+        "unidades": 1,
+        "link_instagram": ""
+      }
+    ]
+  },
+  {
+    "pais": "España",
+    "subgrupo": "Francisco Franco",
+    "monedas": [
+      {
+        "valor": "10 céntimos",
+        "ano": 1945,
+        "ceca": "Madrid",
+        "conservacion": "F",
+        "motivo": "",
+        "unidades": 1,
+        "link_instagram": ""
+      },
+      {
+        "valor": "1 peseta",
+        "ano": 1944,
+        "ceca": "Madrid",
+        "conservacion": "VG",
+        "motivo": "",
+        "unidades": 1,
+        "link_instagram": ""
+      },
+      {
+        "valor": "50 céntimos",
+        "ano": "1949*51",
+        "ceca": "Madrid",
+        "conservacion": "VG",
+        "motivo": "Flechas invertidas",
+        "unidades": 2,
+        "link_instagram": ""
+      },
+      {
+        "valor": "2,50 pesetas",
+        "ano": "1953*54",
+        "ceca": "Madrid",
+        "conservacion": "F",
+        "motivo": "Francisco Franco",
+        "unidades": 1,
+        "link_instagram": ""
+      },
+      {
+        "valor": "5 pesetas",
+        "ano": "1957*58",
+        "ceca": "Madrid",
+        "conservacion": "F",
+        "motivo": "Francisco Franco",
+        "unidades": 1,
+        "link_instagram": ""
+      },
+      {
+        "valor": "25 pesetas",
+        "ano": "1957*58",
+        "ceca": "Madrid",
+        "conservacion": "F",
+        "motivo": "Francisco Franco",
+        "unidades": 1,
+        "link_instagram": ""
+      },
+      {
+        "valor": "50 pesetas",
+        "ano": "1957*58",
+        "ceca": "Madrid",
+        "conservacion": "F",
+        "motivo": "Francisco Franco",
+        "unidades": 1,
+        "link_instagram": ""
+      },
+      {
+        "valor": "50 céntimos",
+        "ano": "1966*67",
+        "ceca": "Madrid",
+        "conservacion": "F",
+        "motivo": "Francisco Franco",
+        "unidades": 2,
+        "link_instagram": ""
+      }
+    ]
+  },
+  {
+    "pais": "España",
+    "subgrupo": "Juan Carlos I (Pesetas)",
+    "monedas": [
+      {
+        "valor": "1 peseta",
+        "ano": "1975*76",
+        "ceca": "Madrid",
+        "conservacion": "F",
+        "motivo": "",
+        "unidades": 1,
+        "link_instagram": ""
+      },
+      {
+        "valor": "5 pesetas",
+        "ano": "1975*76",
+        "ceca": "Madrid",
+        "conservacion": "VG",
+        "motivo": "",
+        "unidades": 1,
+        "link_instagram": ""
+      },
+      {
+        "valor": "25 pesetas",
+        "ano": "1975*76",
+        "ceca": "Madrid",
+        "conservacion": "VG",
+        "motivo": "",
+        "unidades": 1,
+        "link_instagram": ""
+      },
+      {
+        "valor": "50 céntimos",
+        "ano": "1980*80",
+        "ceca": "Madrid",
+        "conservacion": "VF",
+        "motivo": "España 82",
+        "unidades": 1,
+        "link_instagram": ""
+      },
+      {
+        "valor": "1 peseta",
+        "ano": "1980*80",
+        "ceca": "Madrid",
+        "conservacion": "VF",
+        "motivo": "España 82",
+        "unidades": 1,
+        "link_instagram": ""
+      },
+      {
+        "valor": "5 pesetas",
+        "ano": "1980*80",
+        "ceca": "Madrid",
+        "conservacion": "VF",
+        "motivo": "España 82",
+        "unidades": 1,
+        "link_instagram": ""
+      },
+      {
+        "valor": "25 pesetas",
+        "ano": "1980*80",
+        "ceca": "Madrid",
+        "conservacion": "VF",
+        "motivo": "España 82",
+        "unidades": 1,
+        "link_instagram": ""
+      },
+      {
+        "valor": "50 pesetas",
+        "ano": "1980*80",
+        "ceca": "Madrid",
+        "conservacion": "VF",
+        "motivo": "España 82",
+        "unidades": 1,
+        "link_instagram": ""
+      },
+      {
+        "valor": "100 pesetas",
+        "ano": "1980*80",
+        "ceca": "Madrid",
+        "conservacion": "VF",
+        "motivo": "España 82",
+        "unidades": 1,
+        "link_instagram": ""
+      },
+      {
+        "valor": "2 pesetas",
+        "ano": 1984,
+        "ceca": "Madrid",
+        "conservacion": "F",
+        "motivo": "",
+        "unidades": 1,
+        "link_instagram": ""
+      },
+      {
+        "valor": "5 pesetas",
+        "ano": 1983,
+        "ceca": "Madrid",
+        "conservacion": "VG",
+        "motivo": "",
+        "unidades": 1,
+        "link_instagram": ""
+      },
+      {
+        "valor": "50 pesetas",
+        "ano": 1982,
+        "ceca": "Madrid",
+        "conservacion": "VF",
+        "motivo": "",
+        "unidades": 1,
+        "link_instagram": ""
+      },
+      {
+        "valor": "100 pesetas",
+        "ano": "1990a",
+        "ceca": "Madrid",
+        "conservacion": "VG",
+        "motivo": "",
+        "unidades": 1,
+        "link_instagram": ""
+      },
+      {
+        "valor": "10 pesetas",
+        "ano": 1983,
+        "ceca": "Madrid",
+        "conservacion": "VG",
+        "motivo": "",
+        "unidades": 1,
+        "link_instagram": ""
+      },
+      {
+        "valor": "500 pesetas",
+        "ano": 1989,
+        "ceca": "Madrid",
+        "conservacion": "F",
+        "motivo": "Juan Carlos I y Sofía",
+        "unidades": 1,
+        "link_instagram": ""
+      },
+      {
+        "valor": "1 peseta",
+        "ano": 2000,
+        "ceca": "Madrid",
+        "conservacion": "VG",
+        "motivo": "",
+        "unidades": 1,
+        "link_instagram": ""
+      },
+      {
+        "valor": "5 pesetas",
+        "ano": 1992,
+        "ceca": "Madrid",
+        "conservacion": "VG",
+        "motivo": "",
+        "unidades": 2,
+        "link_instagram": ""
+      },
+      {
+        "valor": "25 pesetas",
+        "ano": 1990,
+        "ceca": "Madrid",
+        "conservacion": "VF",
+        "motivo": "Barcelona 92 - Lanzador de Disco",
+        "unidades": 1,
+        "link_instagram": ""
+      },
+      {
+        "valor": "25 pesetas",
+        "ano": 1991,
+        "ceca": "Madrid",
+        "conservacion": "F",
+        "motivo": "Barcelona 92 - Salto de Altura",
+        "unidades": 1,
+        "link_instagram": ""
+      },
+      {
+        "valor": "200 pesetas",
+        "ano": 1992,
+        "ceca": "Madrid",
+        "conservacion": "F",
+        "motivo": "Madrid Capital Europea de la Cultura",
+        "unidades": 1,
+        "link_instagram": ""
+      },
+      {
+        "valor": "10 pesetas",
+        "ano": 1992,
+        "ceca": "Madrid",
+        "conservacion": "VG",
+        "motivo": "Tipo 2",
+        "unidades": 1,
+        "link_instagram": ""
+      },
+      {
+        "valor": "25 pesetas",
+        "ano": 1992,
+        "ceca": "Madrid",
+        "conservacion": "VF",
+        "motivo": "Sevilla 92 - Giralda",
+        "unidades": 1,
+        "link_instagram": ""
+      },
+      {
+        "valor": "25 pesetas",
+        "ano": 1992,
+        "ceca": "Madrid",
+        "conservacion": "VG",
+        "motivo": "Sevilla 92 - Torre del Oro",
+        "unidades": 1,
+        "link_instagram": ""
+      },
+      {
+        "valor": "200 pesetas",
+        "ano": 1992,
+        "ceca": "Madrid",
+        "conservacion": "F",
+        "motivo": "Madrid Capital Europea de la Cultura",
+        "unidades": 1,
+        "link_instagram": ""
+      },
+      {
+        "valor": "5 pesetas",
+        "ano": 1993,
+        "ceca": "Madrid",
+        "conservacion": "G",
+        "motivo": "Jacobeo",
+        "unidades": 1,
+        "link_instagram": ""
+      },
+      {
+        "valor": "25 pesetas",
+        "ano": 1993,
+        "ceca": "Madrid",
+        "conservacion": "F",
+        "motivo": "País Vasco",
+        "unidades": 1,
+        "link_instagram": ""
+      },
+      {
+        "valor": "500 pesetas",
+        "ano": 2001,
+        "ceca": "Madrid",
+        "conservacion": "VG",
+        "motivo": "",
+        "unidades": 1,
+        "link_instagram": ""
+      },
+      {
+        "valor": "500 pesetas",
+        "ano": 2001,
+        "ceca": "Madrid",
+        "conservacion": "VF",
+        "motivo": "",
+        "unidades": 1,
+        "link_instagram": ""
+      },
+      {
+        "valor": "5 pesetas",
+        "ano": 1994,
+        "ceca": "Madrid",
+        "conservacion": "VG",
+        "motivo": "Aragón",
+        "unidades": 1,
+        "link_instagram": ""
+      },
+      {
+        "valor": "25 pesetas",
+        "ano": 1994,
+        "ceca": "Madrid",
+        "conservacion": "VF",
+        "motivo": "Islas Canarias",
+        "unidades": 1,
+        "link_instagram": ""
+      },
+      {
+        "valor": "5 pesetas",
+        "ano": 1995,
+        "ceca": "Madrid",
+        "conservacion": "VG",
+        "motivo": "Asturias",
+        "unidades": 1,
+        "link_instagram": ""
+      },
+      {
+        "valor": "25 pesetas",
+        "ano": 1995,
+        "ceca": "Madrid",
+        "conservacion": "VG",
+        "motivo": "Castilla y León",
+        "unidades": 1,
+        "link_instagram": ""
+      },
+      {
+        "valor": "100 pesetas",
+        "ano": "1995A",
+        "ceca": "Madrid",
+        "conservacion": "VG",
+        "motivo": "FAO",
+        "unidades": 1,
+        "link_instagram": ""
+      },
+      {
+        "valor": "2.000 pesetas",
+        "ano": 1995,
+        "ceca": "Madrid",
+        "conservacion": "UNC",
+        "motivo": "Presidencia Española del Consejo de la Unión Europea",
+        "unidades": 1,
+        "link_instagram": ""
+      },
+      {
+        "valor": "5 pesetas",
+        "ano": 1996,
+        "ceca": "Madrid",
+        "conservacion": "VG",
+        "motivo": "La Rioja",
+        "unidades": 1,
+        "link_instagram": ""
+      },
+      {
+        "valor": "25 pesetas",
+        "ano": 1996,
+        "ceca": "Madrid",
+        "conservacion": "VG",
+        "motivo": "Castilla-La Mancha",
+        "unidades": 1,
+        "link_instagram": ""
+      },
+      {
+        "valor": "5 pesetas",
+        "ano": 1997,
+        "ceca": "Madrid",
+        "conservacion": "VG",
+        "motivo": "Islas Baleares",
+        "unidades": 1,
+        "link_instagram": ""
+      },
+      {
+        "valor": "25 pesetas",
+        "ano": 1997,
+        "ceca": "Madrid",
+        "conservacion": "F",
+        "motivo": "Melilla",
+        "unidades": 1,
+        "link_instagram": ""
+      },
+      {
+        "valor": "100 pesetas",
+        "ano": "1998A",
+        "ceca": "Madrid",
+        "conservacion": "F",
+        "motivo": "",
+        "unidades": 1,
+        "link_instagram": ""
+      },
+      {
+        "valor": "25 pesetas",
+        "ano": 1998,
+        "ceca": "Madrid",
+        "conservacion": "F",
+        "motivo": "Ceuta",
+        "unidades": 1,
+        "link_instagram": ""
+      },
+      {
+        "valor": "50 pesetas",
+        "ano": 2000,
+        "ceca": "Madrid",
+        "conservacion": "VF",
+        "motivo": "Juan Carlos I",
+        "unidades": 1,
+        "link_instagram": ""
+      },
+      {
+        "valor": "100 pesetas",
+        "ano": "1999A",
+        "ceca": "Madrid",
+        "conservacion": "VG",
+        "motivo": "Año de las Personas Mayores",
+        "unidades": 1,
+        "link_instagram": ""
+      },
+      {
+        "valor": "25 pesetas",
+        "ano": 1999,
+        "ceca": "Madrid",
+        "conservacion": "F",
+        "motivo": "Navarra",
+        "unidades": 1,
+        "link_instagram": ""
+      },
+      {
+        "valor": "5 pesetas",
+        "ano": 1999,
+        "ceca": "Madrid",
+        "conservacion": "VG",
+        "motivo": "Murcia",
+        "unidades": 1,
+        "link_instagram": ""
+      },
+      {
+        "valor": "10 pesetas",
+        "ano": 1998,
+        "ceca": "Madrid",
+        "conservacion": "VG",
+        "motivo": "",
+        "unidades": 1,
+        "link_instagram": ""
+      }
+    ]
+  },
+  {
+    "pais": "España",
+    "subgrupo": "Euro Circulante y Conmemorativo",
+    "monedas": [
+      {
+        "valor": "1 cent",
+        "ano": 1999,
+        "ceca": "Madrid",
+        "conservacion": "VG",
+        "motivo": "",
+        "unidades": 2,
+        "link_instagram": ""
+      },
+      {
+        "valor": "2 cent",
+        "ano": 1999,
+        "ceca": "Madrid",
+        "conservacion": "VG",
+        "motivo": "",
+        "unidades": 1,
+        "link_instagram": ""
+      },
+      {
+        "valor": "5 cent",
+        "ano": 1999,
+        "ceca": "Madrid",
+        "conservacion": "VG",
+        "motivo": "",
+        "unidades": 1,
+        "link_instagram": ""
+      },
+      {
+        "valor": "10 cent",
+        "ano": 1999,
+        "ceca": "Madrid",
+        "conservacion": "F",
+        "motivo": "",
+        "unidades": 1,
+        "link_instagram": ""
+      },
+      {
+        "valor": "20 cent",
+        "ano": 1999,
+        "ceca": "Madrid",
+        "conservacion": "VG",
+        "motivo": "",
+        "unidades": 2,
+        "link_instagram": ""
+      },
+      {
+        "valor": "50 cent",
+        "ano": 1999,
+        "ceca": "Madrid",
+        "conservacion": "VG",
+        "motivo": "",
+        "unidades": 1,
+        "link_instagram": ""
+      },
+      {
+        "valor": "1 euro",
+        "ano": 1999,
+        "ceca": "Madrid",
+        "conservacion": "VG",
+        "motivo": "",
+        "unidades": 1,
+        "link_instagram": ""
+      },
+      {
+        "valor": "2 euro",
+        "ano": 1999,
+        "ceca": "Madrid",
+        "conservacion": "VG",
+        "motivo": "",
+        "unidades": 1,
+        "link_instagram": ""
+      },
+      {
+        "valor": "2 euro",
+        "ano": 2005,
+        "ceca": "Madrid",
+        "conservacion": "VG",
+        "motivo": "Don Quijote de la Mancha",
+        "unidades": 1,
+        "link_instagram": ""
+      },
+      {
+        "valor": "2 euro",
+        "ano": 2007,
+        "ceca": "Madrid",
+        "conservacion": "XF",
+        "motivo": "",
+        "unidades": 1,
+        "link_instagram": ""
+      },
+      {
+        "valor": "2 euro",
+        "ano": 2007,
+        "ceca": "Madrid",
+        "conservacion": "VG",
+        "motivo": "50 Aniversario del Tratado de Roma",
+        "unidades": 1,
+        "link_instagram": ""
+      },
+      {
+        "valor": "2 euro",
+        "ano": 2009,
+        "ceca": "Madrid",
+        "conservacion": "VG",
+        "motivo": "10 Aniversario de la Unión Económica y Monetaria",
+        "unidades": 1,
+        "link_instagram": ""
+      },
+      {
+        "valor": "2 euro",
+        "ano": 2010,
+        "ceca": "Madrid",
+        "conservacion": "F",
+        "motivo": "",
+        "unidades": 1,
+        "link_instagram": ""
+      },
+      {
+        "valor": "2 euro",
+        "ano": 2010,
+        "ceca": "Madrid",
+        "conservacion": "F",
+        "motivo": "UNESCO - Mezquita de Córdoba",
+        "unidades": 1,
+        "link_instagram": ""
+      },
+      {
+        "valor": "2 euro",
+        "ano": 2011,
+        "ceca": "Madrid",
+        "conservacion": "F",
+        "motivo": "UNESCO - La Alhambra de Granada",
+        "unidades": 1,
+        "link_instagram": ""
+      },
+      {
+        "valor": "2 euro",
+        "ano": 2012,
+        "ceca": "Madrid",
+        "conservacion": "F",
+        "motivo": "10 Aniversario de la Circulación del Euro",
+        "unidades": 1,
+        "link_instagram": ""
+      },
+      {
+        "valor": "2 euro",
+        "ano": 2012,
+        "ceca": "Madrid",
+        "conservacion": "F",
+        "motivo": "UNESCO - Catedral de Burgos",
+        "unidades": 1,
+        "link_instagram": ""
+      },
+      {
+        "valor": "2 euro",
+        "ano": 2013,
+        "ceca": "Madrid",
+        "conservacion": "F",
+        "motivo": "UNESCO - Monasterio de San Lorenzo de El Escorial",
+        "unidades": 1,
+        "link_instagram": ""
+      },
+      {
+        "valor": "2 euro",
+        "ano": 2014,
+        "ceca": "Madrid",
+        "conservacion": "F",
+        "motivo": "UNESCO - Park Güell (Gaudí)",
+        "unidades": 1,
+        "link_instagram": ""
+      },
+      {
+        "valor": "2 euro",
+        "ano": 2014,
+        "ceca": "Madrid",
+        "conservacion": "F",
+        "motivo": "Proclamación de S.M. el Rey Don Felipe VI",
+        "unidades": 1,
+        "link_instagram": ""
+      },
+      {
+        "valor": "2 euro",
+        "ano": 2015,
+        "ceca": "Madrid",
+        "conservacion": "VG",
+        "motivo": "",
+        "unidades": 1,
+        "link_instagram": ""
+      },
+      {
+        "valor": "2 euro",
+        "ano": 2015,
+        "ceca": "Madrid",
+        "conservacion": "F",
+        "motivo": "UNESCO - Cueva de Altamira",
+        "unidades": 1,
+        "link_instagram": ""
+      },
+      {
+        "valor": "2 euro",
+        "ano": 2015,
+        "ceca": "Madrid",
+        "conservacion": "F",
+        "motivo": "30 Aniversario de la Bandera Europea",
+        "unidades": 1,
+        "link_instagram": ""
+      },
+      {
+        "valor": "2 euro",
+        "ano": 2016,
+        "ceca": "Madrid",
+        "conservacion": "F",
+        "motivo": "UNESCO - Acueducto de Segovia",
+        "unidades": 1,
+        "link_instagram": ""
+      },
+      {
+        "valor": "2 euro",
+        "ano": 2017,
+        "ceca": "Madrid",
+        "conservacion": "VF",
+        "motivo": "UNESCO - Santa María del Naranco",
+        "unidades": 1,
+        "link_instagram": ""
+      },
+      {
+        "valor": "2 euro",
+        "ano": 2018,
+        "ceca": "Madrid",
+        "conservacion": "UNC",
+        "motivo": "50 Aniversario de S.M. Felipe VI",
+        "unidades": 1,
+        "link_instagram": ""
+      },
+      {
+        "valor": "2 euro",
+        "ano": 2018,
+        "ceca": "Madrid",
+        "conservacion": "VF",
+        "motivo": "UNESCO - Santiago de Compostela",
+        "unidades": 1,
+        "link_instagram": ""
+      },
+      {
+        "valor": "2 euro",
+        "ano": 2019,
+        "ceca": "Madrid",
+        "conservacion": "UNC",
+        "motivo": "UNESCO - Muralla de Ávila",
+        "unidades": 1,
+        "link_instagram": ""
+      },
+      {
+        "valor": "2 euro",
+        "ano": 2020,
+        "ceca": "Madrid",
+        "conservacion": "UNC",
+        "motivo": "UNESCO - Arquitectura Mudéjar de Aragón",
+        "unidades": 1,
+        "link_instagram": ""
+      },
+      {
+        "valor": "2 euro",
+        "ano": 2021,
+        "ceca": "Madrid",
+        "conservacion": "UNC",
+        "motivo": "UNESCO - Ciudad de Toledo",
+        "unidades": 1,
+        "link_instagram": ""
+      },
+      {
+        "valor": "2 euro",
+        "ano": 2022,
+        "ceca": "Madrid",
+        "conservacion": "UNC",
+        "motivo": "500 Aniversario - Primera circunnavegación (Elcano)",
+        "unidades": 1,
+        "link_instagram": ""
+      },
+      {
+        "valor": "2 euro",
+        "ano": 2022,
+        "ceca": "Madrid",
+        "conservacion": "UNC",
+        "motivo": "35 Aniversario del Programa Erasmus",
+        "unidades": 1,
+        "link_instagram": ""
+      },
+      {
+        "valor": "2 euro",
+        "ano": 2022,
+        "ceca": "Madrid",
+        "conservacion": "UNC",
+        "motivo": "UNESCO - Parque Nacional de Garajonay",
+        "unidades": 1,
+        "link_instagram": ""
+      },
+      {
+        "valor": "2 euro",
+        "ano": 2023,
+        "ceca": "Madrid",
+        "conservacion": "UNC",
+        "motivo": "UNESCO - Cáceres",
+        "unidades": 1,
+        "link_instagram": ""
+      },
+      {
+        "valor": "2 euro",
+        "ano": 2023,
+        "ceca": "Madrid",
+        "conservacion": "UNC",
+        "motivo": "Presidencia Española de la Unión Europea",
+        "unidades": 1,
+        "link_instagram": ""
+      },
+      {
+        "valor": "2 euro",
+        "ano": 2024,
+        "ceca": "Madrid",
+        "conservacion": "UNC",
+        "motivo": "200 Aniversario de la Policía Nacional",
+        "unidades": 1,
+        "link_instagram": ""
+      },
+      {
+        "valor": "2 euro",
+        "ano": 2024,
+        "ceca": "Madrid",
+        "conservacion": "UNC",
+        "motivo": "UNESCO - Sevilla",
+        "unidades": 1,
+        "link_instagram": ""
+      },
+      {
+        "valor": "2 euro",
+        "ano": 2025,
+        "ceca": "Madrid",
+        "conservacion": "UNC",
+        "motivo": "UNESCO - Salamanca",
+        "unidades": 1,
+        "link_instagram": ""
+      },
+      {
+        "valor": "2 euro",
+        "ano": 2026,
+        "ceca": "Madrid",
+        "conservacion": "UNC",
+        "motivo": "UNESCO - Monasterio de Poblet",
+        "unidades": 1,
+        "link_instagram": ""
+      },
+      {
+        "valor": "2 euro",
+        "ano": 2026,
+        "ceca": "Madrid",
+        "conservacion": "UNC",
+        "motivo": "Constitución Española art. 49 - Inclusión y Protección",
+        "unidades": 1,
+        "link_instagram": ""
+      }
+    ]
+  },
+  {
+    "pais": "España",
+    "subgrupo": "Euro Colección y Emisiones Especiales",
+    "monedas": [
+      {
+        "valor": "3 euro",
+        "ano": 1998,
+        "ceca": "Madrid",
+        "conservacion": "PROOF",
+        "motivo": "500 Aniversario Descubrimiento de Tierra Firme (Venezuela)",
+        "unidades": 1,
+        "link_instagram": ""
+      },
+      {
+        "valor": "12 euro",
+        "ano": 2005,
+        "ceca": "Madrid",
+        "conservacion": "UNC",
+        "motivo": "400 Aniversario 1ª edición El Quijote",
+        "unidades": 1,
+        "link_instagram": ""
+      },
+      {
+        "valor": "12 euro",
+        "ano": 2006,
+        "ceca": "Madrid",
+        "conservacion": "UNC",
+        "motivo": "500 Aniversario Muerte de Colón",
+        "unidades": 1,
+        "link_instagram": ""
+      },
+      {
+        "valor": "20 euro",
+        "ano": 2010,
+        "ceca": "Madrid",
+        "conservacion": "UNC",
+        "motivo": "Campeones del Mundo - Sudáfrica 2010",
+        "unidades": 1,
+        "link_instagram": ""
+      },
+      {
+        "valor": "30 euro",
+        "ano": 2018,
+        "ceca": "Madrid",
+        "conservacion": "UNC",
+        "motivo": "1.300 Aniversario del Reino de Asturias",
+        "unidades": 1,
+        "link_instagram": ""
+      },
+      {
+        "valor": "30 euro",
+        "ano": 2019,
+        "ceca": "Madrid",
+        "conservacion": "UNC",
+        "motivo": "200 Aniversario del Museo del Prado",
+        "unidades": 1,
+        "link_instagram": ""
+      },
+      {
+        "valor": "30 euro",
+        "ano": 2020,
+        "ceca": "Madrid",
+        "conservacion": "UNC",
+        "motivo": "Gracias, Profesionales en la Lucha Contra la COVID-19",
+        "unidades": 1,
+        "link_instagram": ""
+      },
+      {
+        "valor": "30 euro",
+        "ano": 2021,
+        "ceca": "Madrid",
+        "conservacion": "UNC",
+        "motivo": "Camino de Santiago",
+        "unidades": 1,
+        "link_instagram": ""
+      },
+      {
+        "valor": "1,5 euro",
+        "ano": 2022,
+        "ceca": "Madrid",
+        "conservacion": "UNC",
+        "motivo": "Lince Ibérico",
+        "unidades": 1,
+        "link_instagram": ""
+      },
+      {
+        "valor": "40 euro",
+        "ano": 2022,
+        "ceca": "Madrid",
+        "conservacion": "UNC",
+        "motivo": "Primera circunnavegación (Elcano)",
+        "unidades": 1,
+        "link_instagram": ""
+      },
+      {
+        "valor": "40 euro",
+        "ano": 2023,
+        "ceca": "Madrid",
+        "conservacion": "PROOF",
+        "motivo": "18 Aniversario Nacimiento Princesa Leonor",
+        "unidades": 1,
+        "link_instagram": ""
+      },
+      {
+        "valor": "10 euro",
+        "ano": 2023,
+        "ceca": "Madrid",
+        "conservacion": "PROOF",
+        "motivo": "Copa del Mundo Femenina FIFA 2023",
+        "unidades": 1,
+        "link_instagram": ""
+      },
+      {
+        "valor": "10 euro",
+        "ano": 2024,
+        "ceca": "Madrid",
+        "conservacion": "PROOF",
+        "motivo": "200 Aniversario del Cuerpo Nacional de Policía",
+        "unidades": 1,
+        "link_instagram": ""
+      },
+      {
+        "valor": "40 euro",
+        "ano": 2024,
+        "ceca": "Madrid",
+        "conservacion": "PROOF",
+        "motivo": "10 Aniversario Proclamación Felipe VI",
+        "unidades": 1,
+        "link_instagram": ""
+      }
+    ]
   }
-
 ]
+
