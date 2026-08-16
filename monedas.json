@@ -1,0 +1,41 @@
+[
+  {
+    "pais": "España",
+    "subcategoria": "2€",
+    "valor": "2 Euros",
+    "ano": 2010,
+    "composicion": "Bimetálica",
+    "conmemorativa": true,
+    "motivo": "Centro Histórico de Córdoba",
+    "es_plata": false,
+    "es_exonumia": false,
+    "imagen": "https://via.placeholder.com/300x300?text=2e+Espana",
+    "link_instagram": "https://www.instagram.com/"
+  },
+  {
+    "pais": "España",
+    "subcategoria": "Juan Carlos I",
+    "valor": "2000 Pesetas",
+    "ano": 1994,
+    "composicion": "Plata 925",
+    "conmemorativa": true,
+    "motivo": "Asamblea del Fondo Monetario Internacional",
+    "es_plata": true,
+    "es_exonumia": false,
+    "imagen": "https://via.placeholder.com/300x300?text=2000+Pesetas+Plata",
+    "link_instagram": ""
+  },
+  {
+    "pais": "Francia",
+    "subcategoria": "",
+    "valor": "5 Francos",
+    "ano": 1960,
+    "composicion": "Plata 835",
+    "conmemorativa": false,
+    "motivo": "",
+    "es_plata": true,
+    "es_exonumia": false,
+    "imagen": "https://via.placeholder.com/300x300?text=5+Francos",
+    "link_instagram": ""
+  }
+]
