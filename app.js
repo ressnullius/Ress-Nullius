@@ -1,3 +1,4 @@
+
 let coleccionMonedas = [];
 
 fetch('monedas.json')
@@ -21,11 +22,16 @@ function mostrarMonedas(monedas) {
         const card = document.createElement('div');
         card.className = 'coin-card';
         
+        let imgAnverso = m.imagen_anverso || m.imagen || 'https://via.placeholder.com/150?text=Anverso';
+        let imgReverso = m.imagen_reverso || 'https://via.placeholder.com/150?text=Reverso';
         let detalleConmemorativo = m.conmemorativa ? `<p><strong>Motivo:</strong> ${m.motivo || 'Sí'}</p>` : '';
         let enlaceIG = m.link_instagram ? `<a href="${m.link_instagram}" target="_blank" class="instagram-link">Ver en Instagram ↗</a>` : '';
 
         card.innerHTML = `
-            <img src="${m.imagen}" alt="${m.valor}" onclick="ampliarImagen('${m.imagen}')">
+            <div style="display: flex; gap: 5px; justify-content: center;">
+                <img src="${imgAnverso}" alt="Anverso ${m.valor}" style="width: 48%;" onclick="ampliarImagen('${imgAnverso}')">
+                <img src="${imgReverso}" alt="Reverso ${m.valor}" style="width: 48%;" onclick="ampliarImagen('${imgReverso}')">
+            </div>
             <h3>${m.pais} - ${m.valor}</h3>
             <div class="coin-info">
                 <p><strong>Año:</strong> ${m.ano}</p>
