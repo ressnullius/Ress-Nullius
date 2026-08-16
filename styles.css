@@ -146,13 +146,20 @@ header p {
     margin: 8px 0;
 }
 
-.instagram-link {
+    .instagram-profile-link {
     display: inline-block;
-    margin-top: 8px;
-    color: #e1306c;
+    margin-top: 10px;
+    color: var(--accent-color);
     text-decoration: none;
-    font-weight: bold;
-    font-size: 0.85rem;
+    font-weight: 600;
+    font-size: 0.95rem;
+    transition: opacity 0.2s;
+}
+
+.instagram-profile-link:hover {
+    opacity: 0.8;
+    text-decoration: underline;
+
 }
 
 .modal {
