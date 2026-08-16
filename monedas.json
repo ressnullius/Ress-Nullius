@@ -37,5 +37,20 @@
     "es_exonumia": false,
     "imagen": "https://via.placeholder.com/300x300?text=5+Francos",
     "link_instagram": ""
+  },
+    {
+    "pais": "España",
+    "subcategoria": "2€",
+    "valor": "2 Euros",
+    "ano": 2010,
+    "composicion": "Bimetálica",
+    "conmemorativa": true,
+    "motivo": "Centro Histórico de Córdoba",
+    "es_plata": false,
+    "es_exonumia": false,
+    "imagen_anverso": "",
+    "imagen_reverso": "",
+    "link_instagram": "https://www.instagram.com/p/C5lx0F9KRVT/?igsh=M2d6enN0NGVyOWdi&igsi=M2d6enN0NGVyOWdi"
   }
+
 ]
