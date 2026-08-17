@@ -22,8 +22,8 @@ function mostrarMonedas(monedas) {
         const card = document.createElement('div');
         card.className = 'coin-card';
         
-        let imgAnverso = m.imagen_anverso || m.imagen || 'https://via.placeholder.com/150?text=Anverso';
-        let imgReverso = m.imagen_reverso || 'https://via.placeholder.com/150?text=Reverso';
+        let imgAnverso = m.imagen_anverso || m.imagen || 'https://images.unsplash.com/photo-1604200230978-831343751761?w=150'; // Una foto de moneda genérica
+        let imgReverso = m.imagen_reverso || 'https://images.unsplash.com/photo-1604200230978-831343751761?w=150';
         let detalleConmemorativo = m.conmemorativa ? `<p><strong>Motivo:</strong> ${m.motivo || 'Sí'}</p>` : '';
         let enlaceIG = m.link_instagram ? `<a href="${m.link_instagram}" target="_blank" class="instagram-link">Ver en Instagram ↗</a>` : '';
 
