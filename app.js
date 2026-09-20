@@ -1,13 +1,40 @@
 
 let coleccionMonedas = [];
 
-fetch('monedas.json')
-    .then(response => response.json())
-    .then(data => {
-        coleccionMonedas = data;
+// Pega aquí tu enlace CSV público de Google Sheets
+const URL_CSV = 'https://docs.google.com/spreadsheets/d/1qFo6gd08Yc4iekHrG16535LwFa5kGmlmOw-nOlxyqdQ/edit?usp=drivedk';
+
+fetch(URL_CSV)
+    .then(response => response.text())
+    .then(dataText => {
+        coleccionMonedas = parsearCSV(dataText);
         mostrarMonedas(coleccionMonedas);
     })
-    .catch(error => console.error('Error cargando las monedas:', error));
+    .catch(error => console.error('Error cargando las monedas desde Google Sheets:', error));
+
+function parsearCSV(texto) {
+    const lineas = texto.split('\n');
+    const cabeceras = lineas[0].split(',').map(h => h.trim().replace(/^"|"$/g, ''));
+    
+    let resultado = [];
+
+    for (let i = 1; i < lineas.length; i++) {
+        if (!lineas[i].trim()) continue;
+        
+        const valores = lineas[i].match(/(".*?"|[^",\s]+)(?=\s*,|\s*$)/g) || lineas[i].split(',');
+        
+        let obj = {};
+        cabeceras.forEach((cabecera, index) => {
+            let valorLimpio = valores[index] ? valores[index].trim().replace(/^"|"$/g, '') : '';
+            if (valorLimpio.toLowerCase() === 'true') valorLimpio = true;
+            if (valorLimpio.toLowerCase() === 'false') valorLimpio = false;
+            
+            obj[cabecera] = valorLimpio;
+        });
+        resultado.push(obj);
+    }
+    return resultado;
+}
 
 function mostrarMonedas(monedas) {
     const grid = document.getElementById('grid-monedas');
@@ -24,27 +51,35 @@ function mostrarMonedas(monedas) {
         
         let imgAnverso, imgReverso;
         
-        if (m.id_foto) {
-            imgAnverso = `img/${m.id_foto}_Anv.webp`;
-            imgReverso = `img/${m.id_foto}_Rev.webp`;
+        // Mapeo dinámico usando tu columna ID_Foto
+        const idFoto = m.ID_Foto || m.id_foto;
+        if (idFoto && idFoto !== "") {
+            imgAnverso = `img/${idFoto}_Anv.webp`;
+            imgReverso = `img/${idFoto}_Rev.webp`;
         } else {
-            imgAnverso = m.imagen_anverso || m.imagen || 'https://images.unsplash.com/photo-1604200230978-831343751761?w=150';
-            imgReverso = m.imagen_reverso || 'https://images.unsplash.com/photo-1604200230978-831343751761?w=150';
+            imgAnverso = 'https://images.unsplash.com/photo-1604200230978-831343751761?w=150';
+            imgReverso = 'https://images.unsplash.com/photo-1604200230978-831343751761?w=150';
         }
 
-        let detalleConmemorativo = m.conmemorativa ? `<p><strong>Motivo:</strong> ${m.motivo || 'Sí'}</p>` : '';
-        let enlaceIG = m.link_instagram ? `<a href="${m.link_instagram}" target="_blank" class="instagram-link">Ver en Instagram ↗</a>` : '';
+        let nombreMotivo = m.Nombre ? `<p><strong>Motivo:</strong> ${m.Nombre}</p>` : '';
+        let cecaInfo = m.Ceca ? `<p><strong>Ceca:</strong> ${m.Ceca}</p>` : '';
+        let estadoInfo = m.Estado ? `<p><strong>Estado:</strong> ${m.Estado}</p>` : '';
+        let kmInfo = m.KM# ? `<p><strong>KM#:</strong> ${m.KM#}</p>` : '';
+        
+        let enlaceIG = m['Enlace a la foto en Instagram'] ? `<a href="${m['Enlace a la foto en Instagram']}" target="_blank" class="instagram-link">Ver en Instagram ↗</a>` : '';
 
         card.innerHTML = `
             <div style="display: flex; gap: 5px; justify-content: center;">
-                <img src="${imgAnverso}" alt="Anverso ${m.valor}" style="width: 48%; cursor: pointer;" onclick="ampliarImagen('${imgAnverso}')" onerror="this.src='https://images.unsplash.com/photo-1604200230978-831343751761?w=150'">
-                <img src="${imgReverso}" alt="Reverso ${m.valor}" style="width: 48%; cursor: pointer;" onclick="ampliarImagen('${imgReverso}')" onerror="this.style.display='none'">
+                <img src="${imgAnverso}" alt="Anverso ${m.Pais}" style="width: 48%; cursor: pointer;" onclick="ampliarImagen('${imgAnverso}')" onerror="this.src='https://images.unsplash.com/photo-1604200230978-831343751761?w=150'">
+                <img src="${imgReverso}" alt="Reverso ${m.Pais}" style="width: 48%; cursor: pointer;" onclick="ampliarImagen('${imgReverso}')" onerror="this.style.display='none'">
             </div>
-            <h3>${m.pais} - ${m.valor}</h3>
+            <h3>${m.Pais}</h3>
             <div class="coin-info">
-                <p><strong>Año:</strong> ${m.ano}</p>
-                <p><strong>Composición:</strong> ${m.composicion}</p>
-                ${detalleConmemorativo}
+                <p><strong>Año:</strong> ${m.Año}</p>
+                ${cecaInfo}
+                ${estadoInfo}
+                ${kmInfo}
+                ${nombreMotivo}
             </div>
             ${enlaceIG}
         `;
@@ -52,26 +87,11 @@ function mostrarMonedas(monedas) {
     });
 }
 
-function filtrar(categoriaOPais, subcategoria = null) {
+function filtrar(categoriaOPais) {
     let titulo = document.getElementById('titulo-seccion');
+    titulo.innerText = categoriaOPais;
     
-    let filtradas = coleccionMonedas.filter(m => {
-        if (subcategoria) {
-            titulo.innerText = `${categoriaOPais}: ${subcategoria}`;
-            return m.pais === categoriaOPais && m.subcategoria === subcategoria;
-        }
-        if (categoriaOPais === 'Plata') {
-            titulo.innerText = 'Monedas de Plata';
-            return m.es_plata === true;
-        }
-        if (categoriaOPais === 'Exonumia') {
-            titulo.innerText = 'Exonumia';
-            return m.es_exonumia === true;
-        }
-        titulo.innerText = categoriaOPais;
-        return m.pais === categoriaOPais;
-    });
-
+    let filtradas = coleccionMonedas.filter(m => m.Pais === categoriaOPais);
     mostrarMonedas(filtradas);
 }
 
@@ -89,5 +109,4 @@ function ampliarImagen(src) {
 
 function cerrarModal() {
     document.getElementById('modal').style.display = "none";
-}  
-
+}
