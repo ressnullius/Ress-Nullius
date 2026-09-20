@@ -1,3 +1,14 @@
+
+let coleccionMonedas = [];
+
+fetch('monedas.json')
+    .then(response => response.json())
+    .then(data => {
+        coleccionMonedas = data;
+        mostrarMonedas(coleccionMonedas);
+    })
+    .catch(error => console.error('Error cargando las monedas:', error));
+
 function mostrarMonedas(monedas) {
     const grid = document.getElementById('grid-monedas');
     grid.innerHTML = '';
@@ -11,8 +22,6 @@ function mostrarMonedas(monedas) {
         const card = document.createElement('div');
         card.className = 'coin-card';
         
-        // Construimos las rutas dinámicamente usando el ID de la foto si existe, 
-        // o recurriendo a las propiedades antiguas si las hubiera.
         let imgAnverso, imgReverso;
         
         if (m.id_foto) {
@@ -42,3 +51,43 @@ function mostrarMonedas(monedas) {
         grid.appendChild(card);
     });
 }
+
+function filtrar(categoriaOPais, subcategoria = null) {
+    let titulo = document.getElementById('titulo-seccion');
+    
+    let filtradas = coleccionMonedas.filter(m => {
+        if (subcategoria) {
+            titulo.innerText = `${categoriaOPais}: ${subcategoria}`;
+            return m.pais === categoriaOPais && m.subcategoria === subcategoria;
+        }
+        if (categoriaOPais === 'Plata') {
+            titulo.innerText = 'Monedas de Plata';
+            return m.es_plata === true;
+        }
+        if (categoriaOPais === 'Exonumia') {
+            titulo.innerText = 'Exonumia';
+            return m.es_exonumia === true;
+        }
+        titulo.innerText = categoriaOPais;
+        return m.pais === categoriaOPais;
+    });
+
+    mostrarMonedas(filtradas);
+}
+
+function mostrarTodas() {
+    document.getElementById('titulo-seccion').innerText = 'Todas las monedas';
+    mostrarMonedas(coleccionMonedas);
+}
+
+function ampliarImagen(src) {
+    const modal = document.getElementById('modal');
+    const imgModal = document.getElementById('img-modal');
+    modal.style.display = "block";
+    imgModal.src = src;
+}
+
+function cerrarModal() {
+    document.getElementById('modal').style.display = "none";
+}  
+
