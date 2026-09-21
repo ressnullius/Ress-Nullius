@@ -1,7 +1,7 @@
 
 let coleccionMonedas = [];
 
-const URL_CSV = 'https://docs.google.com/spreadsheets/d/1qFo6gd08Yc4iekHrG16535LwFa5kGmlmOw-nOlxyqdQ/export?format=csv';
+const URL_CSV = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vRu06uTaYrebKpFGsHgpT_ju9Sf5DIkz7lrl9Pb0wcl86beVXKKYxVOc_8QSR3dP7qSEW-PwY4ijdMO/pub?output=csv';
 
 fetch(URL_CSV)
     .then(response => response.text())
