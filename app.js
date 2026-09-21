@@ -7,14 +7,17 @@ fetch(URL_CSV)
     .then(response => response.text())
     .then(dataText => {
         coleccionMonedas = parsearCSV(dataText);
+        console.log("Monedas cargadas desde Google Sheets:", coleccionMonedas.length);
+        console.log("Ejemplo de primera moneda:", coleccionMonedas[0]);
         mostrarMonedas(coleccionMonedas);
     })
     .catch(error => console.error('Error cargando las monedas desde Google Sheets:', error));
 
 function parsearCSV(texto) {
     const lineas = texto.split('\n');
-    const cabeceras = lineas[0].split(',').map(h => h.trim().replace(/^"|"$/g, ''));
+    if (lineas.length === 0) return [];
     
+    const cabeceras = lineas[0].split(',').map(h => h.trim().replace(/^"|"$/g, ''));
     let resultado = [];
 
     for (let i = 1; i < lineas.length; i++) {
@@ -27,7 +30,6 @@ function parsearCSV(texto) {
             let valorLimpio = valores[index] ? valores[index].trim().replace(/^"|"$/g, '') : '';
             if (valorLimpio.toLowerCase() === 'true') valorLimpio = true;
             if (valorLimpio.toLowerCase() === 'false') valorLimpio = false;
-            
             obj[cabecera] = valorLimpio;
         });
         resultado.push(obj);
@@ -39,7 +41,7 @@ function mostrarMonedas(monedas) {
     const grid = document.getElementById('grid-monedas');
     grid.innerHTML = '';
 
-    if(monedas.length === 0) {
+    if (!monedas || monedas.length === 0) {
         grid.innerHTML = '<p style="grid-column: 1/-1; text-align: center;">No hay monedas registradas en esta categoría.</p>';
         return;
     }
@@ -62,16 +64,14 @@ function mostrarMonedas(monedas) {
         let nombreMotivo = m.Nombre ? `<p><strong>Motivo:</strong> ${m.Nombre}</p>` : '';
         let cecaInfo = m.Ceca ? `<p><strong>Ceca:</strong> ${m.Ceca}</p>` : '';
         let estadoInfo = m.Estado ? `<p><strong>Estado:</strong> ${m.Estado}</p>` : '';
-        
         let kmValor = m['KM#'] || m['FO#'];
         let kmInfo = kmValor ? `<p><strong>KM#:</strong> ${kmValor}</p>` : '';
-        
         let enlaceIG = m['Enlace a la foto en Instagram'] ? `<a href="${m['Enlace a la foto en Instagram']}" target="_blank" class="instagram-link">Ver en Instagram ↗</a>` : '';
 
         card.innerHTML = `
             <div style="display: flex; gap: 5px; justify-content: center;">
-                <img src="${imgAnverso}" alt="Anverso ${m.Pais}" style="width: 48%; cursor: pointer;" onclick="ampliarImagen('${imgAnverso}')" onerror="this.src='https://images.unsplash.com/photo-1604200230978-831343751761?w=150'">
-                <img src="${imgReverso}" alt="Reverso ${m.Pais}" style="width: 48%; cursor: pointer;" onclick="ampliarImagen('${imgReverso}')" onerror="this.style.display='none'">
+                <img src="${imgAnverso}" alt="Anverso" style="width: 48%; cursor: pointer;" onclick="ampliarImagen('${imgAnverso}')" onerror="this.src='https://images.unsplash.com/photo-1604200230978-831343751761?w=150'">
+                <img src="${imgReverso}" alt="Reverso" style="width: 48%; cursor: pointer;" onclick="ampliarImagen('${imgReverso}')" onerror="this.style.display='none'">
             </div>
             <h3>${m.Pais || 'Moneda'}</h3>
             <div class="coin-info">
@@ -87,14 +87,22 @@ function mostrarMonedas(monedas) {
     });
 }
 
-function filtrar(categoriaOPais) {
+function filtrar(paisOpcion, subcategoria = null) {
     let titulo = document.getElementById('titulo-seccion');
-    titulo.innerText = categoriaOPais;
     
-    // Filtrado robusto comparando quitando espacios y mayúsculas/minúsculas
     let filtradas = coleccionMonedas.filter(m => {
         if (!m.Pais) return false;
-        return m.Pais.trim().toLowerCase() === categoriaOPais.trim().toLowerCase();
+        let coincidePais = m.Pais.trim().toLowerCase() === paisOpcion.trim().toLowerCase();
+        
+        if (subcategoria) {
+            titulo.innerText = `${paisOpcion}: ${subcategoria}`;
+            // Comprobamos si coincide el país y además la subcategoría (por ejemplo en Estado, Nombre o KM#)
+            let textoFila = Object.values(m).join(' ').toLowerCase();
+            return coincidePais && textoFila.includes(subcategoria.toLowerCase());
+        }
+        
+        titulo.innerText = paisOpcion;
+        return coincidePais;
     });
     
     mostrarMonedas(filtradas);
