@@ -1,6 +1,8 @@
 
 let coleccionMonedas = [];
 
+// IMPORTANTE: Si tus hojas están separadas en Google Sheets, asegúrate de que este enlace apunta a la pestaña principal, 
+// o unifica todas tus monedas en una sola pestaña de Google Sheets para que se carguen todas de golpe.
 const URL_CSV = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vRu06uTaYrebKpFGsHgpT_ju9Sf5DIkz7lrl9Pb0wcl86beVXKKYxVOc_8QSR3dP7qSEW-PwY4ijdMO/pub?output=csv';
 
 fetch(URL_CSV)
@@ -8,17 +10,18 @@ fetch(URL_CSV)
     .then(dataText => {
         coleccionMonedas = parsearCSV(dataText);
         console.log("Monedas cargadas correctamente:", coleccionMonedas.length);
-        console.log("Primera moneda real:", coleccionMonedas[0]);
+        if (coleccionMonedas.length > 0) {
+            console.log("Primera moneda procesada:", coleccionMonedas[0]);
+        }
         mostrarMonedas(coleccionMonedas);
     })
     .catch(error => console.error('Error cargando las monedas desde Google Sheets:', error));
 
-// Parser robusto carácter a carácter para evitar desplazamientos de columnas
 function parsearCSV(texto) {
     const lineas = texto.split('\n');
     if (lineas.length === 0) return [];
     
-    const cabeceras = parsearLineaCSV(lineas[0]);
+    const cabeceras = parsearLineaCSV(lineas[0]).map(h => h.trim().replace(/^"|"$/g, ''));
     let resultado = [];
 
     for (let i = 1; i < lineas.length; i++) {
@@ -28,9 +31,7 @@ function parsearCSV(texto) {
         let obj = {};
         
         cabeceras.forEach((cabecera, index) => {
-            let valorLimpio = valores[index] ? valores[index].trim() : '';
-            if (valorLimpio.toLowerCase() === 'true') valorLimpio = true;
-            if (valorLimpio.toLowerCase() === 'false') valorLimpio = false;
+            let valorLimpio = valores[index] ? valores[index].trim().replace(/^"|"$/g, '') : '';
             obj[cabecera] = valorLimpio;
         });
         resultado.push(obj);
@@ -48,14 +49,25 @@ function parsearLineaCSV(linea) {
         if (char === '"') {
             enComillas = !enComillas;
         } else if (char === ',' && !enComillas) {
-            valores.push(valorActual.replace(/^"|"$/g, '').trim());
+            valores.push(valorActual.trim());
             valorActual = '';
         } else {
             valorActual += char;
         }
     }
-    valores.push(valorActual.replace(/^"|"$/g, '').trim());
+    valores.push(valorActual.trim());
     return valores;
+}
+
+// Función auxiliar robusta para buscar claves sin importar mayúsculas, acentos o espacios
+function obtenerValor(moneda, posiblesNombres) {
+    for (let nombre of posiblesNombres) {
+        let claveReal = Object.keys(moneda).find(k => k.trim().toLowerCase() === nombre.toLowerCase());
+        if (claveReal !== undefined && moneda[claveReal] !== "") {
+            return moneda[claveReal];
+        }
+    }
+    return "";
 }
 
 function mostrarMonedas(monedas) {
@@ -71,9 +83,16 @@ function mostrarMonedas(monedas) {
         const card = document.createElement('div');
         card.className = 'coin-card';
         
+        let idFoto = obtenerValor(m, ['ID_Foto', 'id_foto', 'ID', 'Id', 'Foto']);
+        let pais = obtenerValor(m, ['País', 'Pais', 'Country']) || 'Moneda';
+        let anio = obtenerValor(m, ['Año', 'Anio', 'Year']);
+        let ceca = obtenerValor(m, ['Ceca', 'Mint']);
+        let estado = obtenerValor(m, ['Estado', 'Conservacion', 'State']);
+        let km = obtenerValor(m, ['KM#', 'FO#', 'Catalog']);
+        let nombreMotivo = obtenerValor(m, ['Nombre', 'Motivo', 'Descripcion', 'Title']);
+        let instagram = obtenerValor(m, ['Enlace a la foto en Instagram', 'Instagram', 'Link']);
+
         let imgAnverso, imgReverso;
-        const idFoto = m.ID_Foto || m.id_foto;
-        
         if (idFoto && idFoto !== "") {
             imgAnverso = `img/${idFoto}_Anv.webp`;
             imgReverso = `img/${idFoto}_Rev.webp`;
@@ -82,27 +101,26 @@ function mostrarMonedas(monedas) {
             imgReverso = 'https://images.unsplash.com/photo-1604200230978-831343751761?w=150';
         }
 
-        let nombreMotivo = m.Nombre ? `<p><strong>Motivo:</strong> ${m.Nombre}</p>` : '';
-        let cecaInfo = m.Ceca ? `<p><strong>Ceca:</strong> ${m.Ceca}</p>` : '';
-        let estadoInfo = m.Estado ? `<p><strong>Estado:</strong> ${m.Estado}</p>` : '';
-        let kmValor = m['KM#'] || m['FO#'];
-        let kmInfo = kmValor ? `<p><strong>KM#:</strong> ${kmValor}</p>` : '';
-        let enlaceIG = m['Enlace a la foto en Instagram'] ? `<a href="${m['Enlace a la foto en Instagram']}" target="_blank" class="instagram-link">Ver en Instagram ↗</a>` : '';
+        let htmlMotivo = nombreMotivo ? `<p><strong>Motivo:</strong> ${nombreMotivo}</p>` : '';
+        let htmlCeca = ceca ? `<p><strong>Ceca:</strong> ${ceca}</p>` : '';
+        let htmlEstado = estado ? `<p><strong>Estado:</strong> ${estado}</p>` : '';
+        let htmlKm = km ? `<p><strong>KM#:</strong> ${km}</p>` : '';
+        let htmlIg = instagram ? `<a href="${instagram}" target="_blank" class="instagram-link">Ver en Instagram ↗</a>` : '';
 
         card.innerHTML = `
             <div style="display: flex; gap: 5px; justify-content: center;">
                 <img src="${imgAnverso}" alt="Anverso" style="width: 48%; cursor: pointer;" onclick="ampliarImagen('${imgAnverso}')" onerror="this.src='https://images.unsplash.com/photo-1604200230978-831343751761?w=150'">
                 <img src="${imgReverso}" alt="Reverso" style="width: 48%; cursor: pointer;" onclick="ampliarImagen('${imgReverso}')" onerror="this.style.display='none'">
             </div>
-            <h3>${m.Pais || 'Moneda'}</h3>
+            <h3>${pais}</h3>
             <div class="coin-info">
-                <p><strong>Año:</strong> ${m.Año || ''}</p>
-                ${cecaInfo}
-                ${estadoInfo}
-                ${kmInfo}
-                ${nombreMotivo}
+                <p><strong>Año:</strong> ${anio}</p>
+                ${htmlCeca}
+                ${htmlEstado}
+                ${htmlKm}
+                ${htmlMotivo}
             </div>
-            ${enlaceIG}
+            ${htmlIg}
         `;
         grid.appendChild(card);
     });
@@ -112,17 +130,15 @@ function filtrar(categoriaOpcion, subcategoria = null) {
     let titulo = document.getElementById('titulo-seccion');
     
     let filtradas = coleccionMonedas.filter(m => {
-        let paisCelda = obtenerValor(m, ['País', 'Pais', 'Country']).toLowerCase();
+        let textoFilaCompleto = Object.values(m).join(' ').toLowerCase();
         let categoriaBuscada = categoriaOpcion.toLowerCase();
         
-        // Coincidencia flexible si la celda contiene el nombre de la categoría (ej: "España (Plata)" contiene "plata" o "españa")
-        let coincide = paisCelda.includes(categoriaBuscada) || 
-                       Object.values(m).join(' ').toLowerCase().includes(categoriaBuscada);
+        let coincide = textoFilaCompleto.includes(categoriaBuscada);
         
         if (subcategoria) {
             titulo.innerText = `${categoriaOpcion}: ${subcategoria}`;
             let subBuscada = subcategoria.toLowerCase();
-            return coincide && Object.values(m).join(' ').toLowerCase().includes(subBuscada);
+            return coincide && textoFilaCompleto.includes(subBuscada);
         }
         
         titulo.innerText = categoriaOpcion;
