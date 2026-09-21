@@ -63,7 +63,6 @@ function mostrarMonedas(monedas) {
         let cecaInfo = m.Ceca ? `<p><strong>Ceca:</strong> ${m.Ceca}</p>` : '';
         let estadoInfo = m.Estado ? `<p><strong>Estado:</strong> ${m.Estado}</p>` : '';
         
-        // CORREGIDO: Uso de corchetes para evitar errores con el carácter '#'
         let kmValor = m['KM#'] || m['FO#'];
         let kmInfo = kmValor ? `<p><strong>KM#:</strong> ${kmValor}</p>` : '';
         
@@ -74,9 +73,9 @@ function mostrarMonedas(monedas) {
                 <img src="${imgAnverso}" alt="Anverso ${m.Pais}" style="width: 48%; cursor: pointer;" onclick="ampliarImagen('${imgAnverso}')" onerror="this.src='https://images.unsplash.com/photo-1604200230978-831343751761?w=150'">
                 <img src="${imgReverso}" alt="Reverso ${m.Pais}" style="width: 48%; cursor: pointer;" onclick="ampliarImagen('${imgReverso}')" onerror="this.style.display='none'">
             </div>
-            <h3>${m.Pais}</h3>
+            <h3>${m.Pais || 'Moneda'}</h3>
             <div class="coin-info">
-                <p><strong>Año:</strong> ${m.Año}</p>
+                <p><strong>Año:</strong> ${m.Año || ''}</p>
                 ${cecaInfo}
                 ${estadoInfo}
                 ${kmInfo}
@@ -92,7 +91,12 @@ function filtrar(categoriaOPais) {
     let titulo = document.getElementById('titulo-seccion');
     titulo.innerText = categoriaOPais;
     
-    let filtradas = coleccionMonedas.filter(m => m.Pais === categoriaOPais);
+    // Filtrado robusto comparando quitando espacios y mayúsculas/minúsculas
+    let filtradas = coleccionMonedas.filter(m => {
+        if (!m.Pais) return false;
+        return m.Pais.trim().toLowerCase() === categoriaOPais.trim().toLowerCase();
+    });
+    
     mostrarMonedas(filtradas);
 }
 
