@@ -2,7 +2,7 @@
 let coleccionMonedas = [];
 
 // Pega aquí tu enlace CSV público de Google Sheets
-const URL_CSV = 'https://docs.google.com/spreadsheets/d/1qFo6gd08Yc4iekHrG16535LwFa5kGmlmOw-nOlxyqdQ/edit?usp=drivedk';
+const URL_CSV = 'https://docs.google.com/spreadsheets/d/1qFo6gd08Yc4iekHrG16535LwFa5kGmlmOw-nOlxyqdQ/export?format=csv';
 
 fetch(URL_CSV)
     .then(response => response.text())
