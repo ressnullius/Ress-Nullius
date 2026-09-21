@@ -108,21 +108,25 @@ function mostrarMonedas(monedas) {
     });
 }
 
-function filtrar(paisOpcion, subcategoria = null) {
+function filtrar(categoriaOpcion, subcategoria = null) {
     let titulo = document.getElementById('titulo-seccion');
     
     let filtradas = coleccionMonedas.filter(m => {
-        if (!m.Pais) return false;
-        let coincidePais = m.Pais.trim().toLowerCase() === paisOpcion.trim().toLowerCase();
+        let paisCelda = obtenerValor(m, ['País', 'Pais', 'Country']).toLowerCase();
+        let categoriaBuscada = categoriaOpcion.toLowerCase();
+        
+        // Coincidencia flexible si la celda contiene el nombre de la categoría (ej: "España (Plata)" contiene "plata" o "españa")
+        let coincide = paisCelda.includes(categoriaBuscada) || 
+                       Object.values(m).join(' ').toLowerCase().includes(categoriaBuscada);
         
         if (subcategoria) {
-            titulo.innerText = `${paisOpcion}: ${subcategoria}`;
-            let textoFila = Object.values(m).join(' ').toLowerCase();
-            return coincidePais && textoFila.includes(subcategoria.toLowerCase());
+            titulo.innerText = `${categoriaOpcion}: ${subcategoria}`;
+            let subBuscada = subcategoria.toLowerCase();
+            return coincide && Object.values(m).join(' ').toLowerCase().includes(subBuscada);
         }
         
-        titulo.innerText = paisOpcion;
-        return coincidePais;
+        titulo.innerText = categoriaOpcion;
+        return coincide;
     });
     
     mostrarMonedas(filtradas);
