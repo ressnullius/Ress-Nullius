@@ -7,27 +7,28 @@ fetch(URL_CSV)
     .then(response => response.text())
     .then(dataText => {
         coleccionMonedas = parsearCSV(dataText);
-        console.log("Monedas cargadas desde Google Sheets:", coleccionMonedas.length);
-        console.log("Ejemplo de primera moneda:", coleccionMonedas[0]);
+        console.log("Monedas cargadas correctamente:", coleccionMonedas.length);
+        console.log("Primera moneda real:", coleccionMonedas[0]);
         mostrarMonedas(coleccionMonedas);
     })
     .catch(error => console.error('Error cargando las monedas desde Google Sheets:', error));
 
+// Parser robusto carácter a carácter para evitar desplazamientos de columnas
 function parsearCSV(texto) {
     const lineas = texto.split('\n');
     if (lineas.length === 0) return [];
     
-    const cabeceras = lineas[0].split(',').map(h => h.trim().replace(/^"|"$/g, ''));
+    const cabeceras = parsearLineaCSV(lineas[0]);
     let resultado = [];
 
     for (let i = 1; i < lineas.length; i++) {
         if (!lineas[i].trim()) continue;
         
-        const valores = lineas[i].match(/(".*?"|[^",\s]+)(?=\s*,|\s*$)/g) || lineas[i].split(',');
-        
+        const valores = parsearLineaCSV(lineas[i]);
         let obj = {};
+        
         cabeceras.forEach((cabecera, index) => {
-            let valorLimpio = valores[index] ? valores[index].trim().replace(/^"|"$/g, '') : '';
+            let valorLimpio = valores[index] ? valores[index].trim() : '';
             if (valorLimpio.toLowerCase() === 'true') valorLimpio = true;
             if (valorLimpio.toLowerCase() === 'false') valorLimpio = false;
             obj[cabecera] = valorLimpio;
@@ -35,6 +36,26 @@ function parsearCSV(texto) {
         resultado.push(obj);
     }
     return resultado;
+}
+
+function parsearLineaCSV(linea) {
+    let valores = [];
+    let enComillas = false;
+    let valorActual = '';
+    
+    for (let i = 0; i < linea.length; i++) {
+        let char = linea[i];
+        if (char === '"') {
+            enComillas = !enComillas;
+        } else if (char === ',' && !enComillas) {
+            valores.push(valorActual.replace(/^"|"$/g, '').trim());
+            valorActual = '';
+        } else {
+            valorActual += char;
+        }
+    }
+    valores.push(valorActual.replace(/^"|"$/g, '').trim());
+    return valores;
 }
 
 function mostrarMonedas(monedas) {
@@ -96,7 +117,6 @@ function filtrar(paisOpcion, subcategoria = null) {
         
         if (subcategoria) {
             titulo.innerText = `${paisOpcion}: ${subcategoria}`;
-            // Comprobamos si coincide el país y además la subcategoría (por ejemplo en Estado, Nombre o KM#)
             let textoFila = Object.values(m).join(' ').toLowerCase();
             return coincidePais && textoFila.includes(subcategoria.toLowerCase());
         }
