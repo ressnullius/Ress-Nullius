@@ -62,7 +62,10 @@ function mostrarMonedas(monedas) {
         let nombreMotivo = m.Nombre ? `<p><strong>Motivo:</strong> ${m.Nombre}</p>` : '';
         let cecaInfo = m.Ceca ? `<p><strong>Ceca:</strong> ${m.Ceca}</p>` : '';
         let estadoInfo = m.Estado ? `<p><strong>Estado:</strong> ${m.Estado}</p>` : '';
-        let kmInfo = m.KM# ? `<p><strong>KM#:</strong> ${m.KM#}</p>` : '';
+        
+        // CORREGIDO: Uso de corchetes para evitar errores con el carácter '#'
+        let kmValor = m['KM#'] || m['FO#'];
+        let kmInfo = kmValor ? `<p><strong>KM#:</strong> ${kmValor}</p>` : '';
         
         let enlaceIG = m['Enlace a la foto en Instagram'] ? `<a href="${m['Enlace a la foto en Instagram']}" target="_blank" class="instagram-link">Ver en Instagram ↗</a>` : '';
 
