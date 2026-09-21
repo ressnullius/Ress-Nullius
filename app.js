@@ -1,7 +1,6 @@
 
 let coleccionMonedas = [];
 
-// Pega aquí tu enlace CSV público de Google Sheets
 const URL_CSV = 'https://docs.google.com/spreadsheets/d/1qFo6gd08Yc4iekHrG16535LwFa5kGmlmOw-nOlxyqdQ/export?format=csv';
 
 fetch(URL_CSV)
@@ -50,9 +49,8 @@ function mostrarMonedas(monedas) {
         card.className = 'coin-card';
         
         let imgAnverso, imgReverso;
-        
-        // Mapeo dinámico usando tu columna ID_Foto
         const idFoto = m.ID_Foto || m.id_foto;
+        
         if (idFoto && idFoto !== "") {
             imgAnverso = `img/${idFoto}_Anv.webp`;
             imgReverso = `img/${idFoto}_Rev.webp`;
