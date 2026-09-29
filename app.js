@@ -126,20 +126,24 @@ function filtrar(categoriaOpcion, subcategoria = null) {
     let titulo = document.getElementById('titulo-seccion');
     
     let filtradas = coleccionMonedas.filter(m => {
-        let textoFilaCompleto = Object.values(m).join(' ').toLowerCase();
-        let categoriaBuscada = categoriaOpcion.toLowerCase();
+        // Obtenemos los valores de las columnas clave de forma limpia
+        let paisFila = obtenerValor(m, ['País', 'Pais', 'Country']).toLowerCase();
+        let restoTextoFila = Object.values(m).join(' ').toLowerCase();
+        let catBuscada = categoriaOpcion.toLowerCase();
         
-        let coincide = textoFilaCompleto.includes(categoriaBuscada);
+        // Verificamos si la moneda pertenece al país o categoría principal
+        let coincideCategoria = paisFila.includes(catBuscada) || restoTextoFila.includes(catBuscada);
         
         if (subcategoria) {
             titulo.innerText = `${categoriaOpcion}: ${subcategoria}`;
             let subBuscada = subcategoria.toLowerCase();
-            return coincide && textoFilaCompleto.includes(subBuscada);
+            return coincideCategoria && restoTextoFila.includes(subBuscada);
         }
         
         titulo.innerText = categoriaOpcion;
-        return coincide;
+        return coincideCategoria;
     });
+
     
     mostrarMonedas(filtradas);
 }
