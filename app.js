@@ -94,11 +94,13 @@ function mostrarMonedas(monedas) {
 
         let imgAnverso, imgReverso;
         if (idFoto && idFoto !== "") {
+            // Intentamos buscar el formato estándar de anverso/reverso, 
+            // o permitimos que caiga a la imagen base si está nombrada directamente.
             imgAnverso = `img/${idFoto}_Anv.webp`;
             imgReverso = `img/${idFoto}_Rev.webp`;
         } else {
             imgAnverso = 'https://images.unsplash.com/photo-1604200230978-831343751761?w=150';
-            imgReverso = 'https://images.unsplash.com/photo-1604200230978-831343751761?w=150';
+            imgReverso = '';
         }
 
         let htmlMotivo = nombreMotivo ? `<p><strong>Motivo:</strong> ${nombreMotivo}</p>` : '';
@@ -109,7 +111,7 @@ function mostrarMonedas(monedas) {
 
         card.innerHTML = `
             <div style="display: flex; gap: 5px; justify-content: center;">
-                <img src="${imgAnverso}" alt="Anverso" style="width: 48%; cursor: pointer;" onclick="ampliarImagen('${imgAnverso}')" onerror="this.src='https://images.unsplash.com/photo-1604200230978-831343751761?w=150'">
+                <img src="${imgAnverso}" alt="Anverso/Imagen" style="width: 48%; cursor: pointer;" onclick="ampliarImagen('${imgAnverso}')" onerror="this.onerror=null; this.src='img/${idFoto}.webp';">
                 <img src="${imgReverso}" alt="Reverso" style="width: 48%; cursor: pointer;" onclick="ampliarImagen('${imgReverso}')" onerror="this.style.display='none'">
             </div>
             <h3>${pais}</h3>
@@ -122,8 +124,6 @@ function mostrarMonedas(monedas) {
             </div>
             ${htmlIg}
         `;
-        grid.appendChild(card);
-    });
 }
 
 function filtrar(categoriaOpcion, subcategoria = null) {
