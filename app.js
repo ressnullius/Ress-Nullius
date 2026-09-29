@@ -92,15 +92,12 @@ function mostrarMonedas(monedas) {
         let nombreMotivo = obtenerValor(m, ['Nombre', 'Motivo', 'Descripcion', 'Title']);
         let instagram = obtenerValor(m, ['Enlace a la foto en Instagram', 'Instagram', 'Link']);
 
-        let imgAnverso, imgReverso;
+        let imgPrincipal;
         if (idFoto && idFoto !== "") {
-            // Intentamos buscar el formato estándar de anverso/reverso, 
-            // o permitimos que caiga a la imagen base si está nombrada directamente.
-            imgAnverso = `img/${idFoto}_Anv.webp`;
-            imgReverso = `img/${idFoto}_Rev.webp`;
+            // Apunta directamente al nombre exacto que hay en tu columna ID_Foto (ej: img/34_EX.webp)
+            imgPrincipal = `img/${idFoto}.webp`;
         } else {
-            imgAnverso = 'https://images.unsplash.com/photo-1604200230978-831343751761?w=150';
-            imgReverso = '';
+            imgPrincipal = 'https://images.unsplash.com/photo-1604200230978-831343751761?w=150';
         }
 
         let htmlMotivo = nombreMotivo ? `<p><strong>Motivo:</strong> ${nombreMotivo}</p>` : '';
@@ -110,9 +107,8 @@ function mostrarMonedas(monedas) {
         let htmlIg = instagram ? `<a href="${instagram}" target="_blank" class="instagram-link">Ver en Instagram ↗</a>` : '';
 
         card.innerHTML = `
-            <div style="display: flex; gap: 5px; justify-content: center;">
-                <img src="${imgAnverso}" alt="Anverso/Imagen" style="width: 48%; cursor: pointer;" onclick="ampliarImagen('${imgAnverso}')" onerror="this.onerror=null; this.src='img/${idFoto}.webp';">
-                <img src="${imgReverso}" alt="Reverso" style="width: 48%; cursor: pointer;" onclick="ampliarImagen('${imgReverso}')" onerror="this.style.display='none'">
+            <div style="text-align: center;">
+                <img src="${imgPrincipal}" alt="Moneda ${pais}" style="width: 90%; max-height: 200px; object-fit: contain; cursor: pointer;" onclick="ampliarImagen('${imgPrincipal}')" onerror="this.src='https://images.unsplash.com/photo-1604200230978-831343751761?w=150'">
             </div>
             <h3>${pais}</h3>
             <div class="coin-info">
