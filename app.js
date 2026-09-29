@@ -3,7 +3,7 @@ let coleccionMonedas = [];
 
 // IMPORTANTE: Si tus hojas están separadas en Google Sheets, asegúrate de que este enlace apunta a la pestaña principal, 
 // o unifica todas tus monedas en una sola pestaña de Google Sheets para que se carguen todas de golpe.
-const URL_CSV = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vRu06uTaYrebKpFGsHgpT_ju9Sf5DIkz7lrl9Pb0wcl86beVXKKYxVOc_8QSR3dP7qSEW-PwY4ijdMO/pubhtml?gid=1568600686&single=true';
+const URL_CSV = 'const URL_CSV = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vRu06uTaYrebKpFGsHgpT_ju9Sf5DIkz7lrl9Pb0wcl86beVXKKYxVOc_8QSR3dP7qSEW-PwY4ijdMO/pub?output=csv&gid=1568600686';
 
 fetch(URL_CSV)
     .then(response => response.text())
